@@ -20,8 +20,9 @@
         body {
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
-            background: linear-gradient(135deg, #eef5ff 0%, #ffffff 50%, #e8f5e9 100%);
-            background-attachment: fixed;
+            /* Latar belakang disesuaikan dengan warna Index 2 */
+            background-color: #4A7298; 
+            color: #ffffff;
         }
 
         /* Animasi Staggered Entrance */
@@ -62,12 +63,28 @@
             hyphens: auto;
         }
 
-        /* Efek Ripple saat Tombol Ditekan/Disentuh */
-        .ripple-btn {
+        /* --- PENGATURAN DESAIN TOMBOL BARU --- */
+        .card-btn {
             position: relative;
             overflow: hidden;
+            background-color: #1E3A5F; /* Solid Navy Blue */
+            border: 3px solid #88D4AB; /* Highlight Hijau Lembut */
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
+        .card-btn:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: #A3E4C2;
+            background-color: #23436b;
+        }
+
+        .card-btn:active {
+            transform: scale(0.98);
+        }
+        /* ------------------------------------- */
+
+        /* Efek Ripple saat Tombol Ditekan/Disentuh */
         .ripple-span {
             position: absolute;
             border-radius: 50%;
@@ -86,29 +103,35 @@
 
         /* Class Animasi Bergerak Saat Sentuh / Touch Active */
         .touch-active {
-            transform: translateY(-6px) scale(1.015) !important;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25) !important;
+            transform: translateY(-4px) scale(1.01) !important;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3) !important;
         }
     </style>
 </head>
-<body class="text-slate-800 min-h-screen relative pb-20">
+<body class="min-h-screen relative flex flex-col justify-between">
 
-    <!-- Background Floating Decorative Icons -->
-    <div class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
-        <div class="absolute top-[8%] left-[5%] text-blue-300/40 text-6xl float-slow"><i class="fas fa-code"></i></div>
-        <div class="absolute top-[18%] right-[8%] text-teal-300/40 text-5xl float-medium font-bold">{ }</div>
-        <div class="absolute top-[38%] left-[8%] text-indigo-300/40 text-7xl float-slow"><i class="fas fa-puzzle-piece"></i></div>
-        <div class="absolute top-[52%] right-[6%] text-purple-300/40 text-5xl float-medium"><i class="fas fa-project-diagram"></i></div>
-        <div class="absolute bottom-[22%] left-[6%] text-cyan-300/40 text-4xl float-slow">&lt; /&gt;</div>
-        <div class="absolute bottom-[8%] right-[10%] text-emerald-300/40 text-6xl float-medium"><i class="fas fa-sitemap"></i></div>
+    <!-- Background Floating Decorative Icons (Disesuaikan jadi transparan putih agar cocok) -->
+    <div class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden opacity-20 text-white">
+        <div class="absolute top-[8%] left-[5%] text-6xl float-slow"><i class="fas fa-code"></i></div>
+        <div class="absolute top-[18%] right-[8%] text-5xl float-medium font-bold">{ }</div>
+        <div class="absolute top-[38%] left-[8%] text-7xl float-slow"><i class="fas fa-puzzle-piece"></i></div>
+        <div class="absolute top-[52%] right-[6%] text-5xl float-medium"><i class="fas fa-project-diagram"></i></div>
+        <div class="absolute bottom-[22%] left-[6%] text-4xl float-slow">&lt; /&gt;</div>
+        <div class="absolute bottom-[8%] right-[10%] text-6xl float-medium"><i class="fas fa-sitemap"></i></div>
     </div>
 
-    <div class="max-w-[880px] mx-auto w-full px-4 pt-10">
+    <!-- Container Utama -->
+    <main class="max-w-[880px] mx-auto w-full px-4 pt-10 flex-grow">
         
-        <!-- Header Halaman Utama (Tanpa Subjudul & Navigasi) -->
+        <!-- Logo Paling Atas Tengah -->
+        <div class="w-full flex justify-center mb-4 mt-2 animate-fade-up" style="animation-delay: 0.05s;">
+            <img src="https://cdn.phototourl.com/member/2026-10-20-301bf8f0-f5cd-4de0-a3fd-b9b3a2d0e3e0.png" alt="Logo Informatika Fun" class="w-32 md:w-44 h-auto object-contain drop-shadow-lg">
+        </div>
+
+        <!-- Header Halaman Utama -->
         <header class="text-center mb-10 animate-fade-up" style="animation-delay: 0.1s;">
-            <h2 class="text-base md:text-lg font-bold text-slate-500 tracking-widest mb-1 uppercase">KELAS VIII – BAB I</h2>
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-600 to-teal-600 drop-shadow-sm">
+            <h2 class="text-base md:text-lg font-bold text-gray-200 tracking-widest mb-1 uppercase">KELAS VIII – BAB I</h2>
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white drop-shadow-md">
                 BAB 1: BERPIKIR KOMPUTASIONAL
             </h1>
         </header>
@@ -117,161 +140,168 @@
         <div class="flex flex-col gap-4">
 
             <!-- Tombol 1 -->
-            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas8-sem1-bab1-pertemuan1" class="card-btn ripple-btn flex items-center w-full bg-[#1e293b] rounded-[22px] p-5 md:p-6 shadow-md border-2 border-blue-500/40 hover:border-blue-400 hover:shadow-[0_12px_28px_rgba(59,130,246,0.25)] hover:-translate-y-1.5 hover:scale-[1.01] transition-all duration-300 group animate-fade-up" style="animation-delay: 0.15s;">
-                <div class="flex-shrink-0 text-3xl md:text-4xl text-blue-400 w-14 md:w-20 text-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
+            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas8-sem1-bab1-pertemuan1" class="card-btn flex items-center w-full rounded-[22px] p-5 md:p-6 shadow-md group animate-fade-up" style="animation-delay: 0.15s;">
+                <div class="flex-shrink-0 text-3xl md:text-4xl text-[#88D4AB] w-14 md:w-20 text-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
                     <i class="fas fa-puzzle-piece drop-shadow"></i>
                 </div>
                 <div class="flex-grow text-justify text-[14px] md:text-[16px] lg:text-[17px] font-semibold text-white leading-relaxed px-2">
                     Pertemuan 1: Pengenalan 4 Pilar Berpikir Komputasional
                 </div>
-                <div class="flex-shrink-0 hidden sm:flex gap-3 text-blue-300/60 text-lg group-hover:text-blue-300 group-hover:translate-x-1 transition-all duration-300">
+                <div class="flex-shrink-0 hidden sm:flex gap-3 text-white/50 text-lg group-hover:text-white group-hover:translate-x-1 transition-all duration-300">
                     <i class="fas fa-cubes"></i>
                     <i class="fas fa-project-diagram"></i>
                 </div>
             </a>
 
             <!-- Tombol 2 -->
-            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas8-sem1-bab1-pertemuan2" class="card-btn ripple-btn flex items-center w-full bg-[#064e3b] rounded-[22px] p-5 md:p-6 shadow-md border-2 border-emerald-500/40 hover:border-emerald-400 hover:shadow-[0_12px_28px_rgba(16,185,129,0.25)] hover:-translate-y-1.5 hover:scale-[1.01] transition-all duration-300 group animate-fade-up" style="animation-delay: 0.2s;">
-                <div class="flex-shrink-0 text-3xl md:text-4xl text-emerald-400 w-14 md:w-20 text-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
+            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas8-sem1-bab1-pertemuan2" class="card-btn flex items-center w-full rounded-[22px] p-5 md:p-6 shadow-md group animate-fade-up" style="animation-delay: 0.2s;">
+                <div class="flex-shrink-0 text-3xl md:text-4xl text-[#88D4AB] w-14 md:w-20 text-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
                     <i class="fas fa-database drop-shadow"></i>
                 </div>
                 <div class="flex-grow text-justify text-[14px] md:text-[16px] lg:text-[17px] font-semibold text-white leading-relaxed px-2">
                     Pertemuan 2: Konsep dan Pemodelan Data Berstruktur Sederhana
                 </div>
-                <div class="flex-shrink-0 hidden sm:flex gap-3 text-emerald-300/60 text-lg group-hover:text-emerald-300 group-hover:translate-x-1 transition-all duration-300">
+                <div class="flex-shrink-0 hidden sm:flex gap-3 text-white/50 text-lg group-hover:text-white group-hover:translate-x-1 transition-all duration-300">
                     <i class="fas fa-table"></i>
                     <i class="fas fa-server"></i>
                 </div>
             </a>
 
             <!-- Tombol 3 -->
-            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas8-sem1-bab1-pertemuan3" class="card-btn ripple-btn flex items-center w-full bg-[#083344] rounded-[22px] p-5 md:p-6 shadow-md border-2 border-cyan-500/40 hover:border-cyan-400 hover:shadow-[0_12px_28px_rgba(6,182,212,0.25)] hover:-translate-y-1.5 hover:scale-[1.01] transition-all duration-300 group animate-fade-up" style="animation-delay: 0.25s;">
-                <div class="flex-shrink-0 text-3xl md:text-4xl text-cyan-400 w-14 md:w-20 text-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
+            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas8-sem1-bab1-pertemuan3" class="card-btn flex items-center w-full rounded-[22px] p-5 md:p-6 shadow-md group animate-fade-up" style="animation-delay: 0.25s;">
+                <div class="flex-shrink-0 text-3xl md:text-4xl text-[#88D4AB] w-14 md:w-20 text-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
                     <i class="fas fa-object-group drop-shadow"></i>
                 </div>
                 <div class="flex-grow text-justify text-[14px] md:text-[16px] lg:text-[17px] font-semibold text-white leading-relaxed px-2">
                     Pertemuan 3: Penerapan Dekomposisi dan Pengenalan Pola pada Pengorganisasian Data Berstruktur Sederhana
                 </div>
-                <div class="flex-shrink-0 hidden sm:flex gap-3 text-cyan-300/60 text-lg group-hover:text-cyan-300 group-hover:translate-x-1 transition-all duration-300">
+                <div class="flex-shrink-0 hidden sm:flex gap-3 text-white/50 text-lg group-hover:text-white group-hover:translate-x-1 transition-all duration-300">
                     <i class="fas fa-th-large"></i>
                     <i class="fas fa-network-wired"></i>
                 </div>
             </a>
 
             <!-- Tombol 4 -->
-            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas8-sem1-bab1-pertemuan4" class="card-btn ripple-btn flex items-center w-full bg-[#2e1065] rounded-[22px] p-5 md:p-6 shadow-md border-2 border-purple-500/40 hover:border-purple-400 hover:shadow-[0_12px_28px_rgba(168,85,247,0.25)] hover:-translate-y-1.5 hover:scale-[1.01] transition-all duration-300 group animate-fade-up" style="animation-delay: 0.3s;">
-                <div class="flex-shrink-0 text-3xl md:text-4xl text-purple-300 w-14 md:w-20 text-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
+            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas8-sem1-bab1-pertemuan4" class="card-btn flex items-center w-full rounded-[22px] p-5 md:p-6 shadow-md group animate-fade-up" style="animation-delay: 0.3s;">
+                <div class="flex-shrink-0 text-3xl md:text-4xl text-[#88D4AB] w-14 md:w-20 text-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
                     <i class="fas fa-search drop-shadow"></i>
                 </div>
                 <div class="flex-grow text-justify text-[14px] md:text-[16px] lg:text-[17px] font-semibold text-white leading-relaxed px-2">
                     Pertemuan 4: Penerapan Abstraksi dan Algoritma Pencarian/Pengurutan Sederhana pada Data Volume Kecil
                 </div>
-                <div class="flex-shrink-0 hidden sm:flex gap-3 text-purple-300/60 text-lg group-hover:text-purple-300 group-hover:translate-x-1 transition-all duration-300">
+                <div class="flex-shrink-0 hidden sm:flex gap-3 text-white/50 text-lg group-hover:text-white group-hover:translate-x-1 transition-all duration-300">
                     <i class="fas fa-sort-amount-down"></i>
                     <i class="fas fa-filter"></i>
                 </div>
             </a>
 
             <!-- Tombol 5 -->
-            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas8-sem1-bab1-pertemuan5" class="card-btn ripple-btn flex items-center w-full bg-[#4c1d95] rounded-[22px] p-5 md:p-6 shadow-md border-2 border-pink-500/40 hover:border-pink-400 hover:shadow-[0_12px_28px_rgba(236,72,153,0.25)] hover:-translate-y-1.5 hover:scale-[1.01] transition-all duration-300 group animate-fade-up" style="animation-delay: 0.35s;">
-                <div class="flex-shrink-0 text-3xl md:text-4xl text-pink-400 w-14 md:w-20 text-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
+            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas8-sem1-bab1-pertemuan5" class="card-btn flex items-center w-full rounded-[22px] p-5 md:p-6 shadow-md group animate-fade-up" style="animation-delay: 0.35s;">
+                <div class="flex-shrink-0 text-3xl md:text-4xl text-[#88D4AB] w-14 md:w-20 text-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
                     <i class="fas fa-terminal drop-shadow"></i>
                 </div>
                 <div class="flex-grow text-justify text-[14px] md:text-[16px] lg:text-[17px] font-semibold text-white leading-relaxed px-2">
                     Pertemuan 5: Pengenalan Pseudocode
                 </div>
-                <div class="flex-shrink-0 hidden sm:flex gap-3 text-pink-300/60 text-lg group-hover:text-pink-300 group-hover:translate-x-1 transition-all duration-300">
+                <div class="flex-shrink-0 hidden sm:flex gap-3 text-white/50 text-lg group-hover:text-white group-hover:translate-x-1 transition-all duration-300">
                     <i class="fas fa-code"></i>
                     <i class="fas fa-file-code"></i>
                 </div>
             </a>
 
             <!-- Tombol 6 -->
-            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas8-sem1-bab1-pertemuan6" class="card-btn ripple-btn flex items-center w-full bg-[#172554] rounded-[22px] p-5 md:p-6 shadow-md border-2 border-blue-400/40 hover:border-blue-300 hover:shadow-[0_12px_28px_rgba(96,165,250,0.25)] hover:-translate-y-1.5 hover:scale-[1.01] transition-all duration-300 group animate-fade-up" style="animation-delay: 0.4s;">
-                <div class="flex-shrink-0 text-3xl md:text-4xl text-blue-300 w-14 md:w-20 text-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
+            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas8-sem1-bab1-pertemuan6" class="card-btn flex items-center w-full rounded-[22px] p-5 md:p-6 shadow-md group animate-fade-up" style="animation-delay: 0.4s;">
+                <div class="flex-shrink-0 text-3xl md:text-4xl text-[#88D4AB] w-14 md:w-20 text-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
                     <i class="fas fa-project-diagram drop-shadow"></i>
                 </div>
                 <div class="flex-grow text-justify text-[14px] md:text-[16px] lg:text-[17px] font-semibold text-white leading-relaxed px-2">
                     Pertemuan 6: Penulisan Pseudocode Struktur Runtutan (Sequential) dan Variabel/Tipe Data Dasar
                 </div>
-                <div class="flex-shrink-0 hidden sm:flex gap-3 text-blue-200/60 text-lg group-hover:text-blue-200 group-hover:translate-x-1 transition-all duration-300">
+                <div class="flex-shrink-0 hidden sm:flex gap-3 text-white/50 text-lg group-hover:text-white group-hover:translate-x-1 transition-all duration-300">
                     <i class="fas fa-long-arrow-alt-down"></i>
                     <i class="fas fa-cube"></i>
                 </div>
             </a>
 
             <!-- Tombol 7 -->
-            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas8-sem1-bab1-pertemuan7" class="card-btn ripple-btn flex items-center w-full bg-[#022c22] rounded-[22px] p-5 md:p-6 shadow-md border-2 border-teal-500/40 hover:border-teal-300 hover:shadow-[0_12px_28px_rgba(20,184,166,0.25)] hover:-translate-y-1.5 hover:scale-[1.01] transition-all duration-300 group animate-fade-up" style="animation-delay: 0.45s;">
-                <div class="flex-shrink-0 text-3xl md:text-4xl text-teal-300 w-14 md:w-20 text-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
+            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas8-sem1-bab1-pertemuan7" class="card-btn flex items-center w-full rounded-[22px] p-5 md:p-6 shadow-md group animate-fade-up" style="animation-delay: 0.45s;">
+                <div class="flex-shrink-0 text-3xl md:text-4xl text-[#88D4AB] w-14 md:w-20 text-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
                     <i class="fas fa-code-branch drop-shadow"></i>
                 </div>
                 <div class="flex-grow text-justify text-[14px] md:text-[16px] lg:text-[17px] font-semibold text-white leading-relaxed px-2">
                     Pertemuan 7: Penulisan Pseudocode Struktur Percabangan (Kondisional: IF-THEN-ELSE)
                 </div>
-                <div class="flex-shrink-0 hidden sm:flex gap-3 text-teal-200/60 text-lg group-hover:text-teal-200 group-hover:translate-x-1 transition-all duration-300">
+                <div class="flex-shrink-0 hidden sm:flex gap-3 text-white/50 text-lg group-hover:text-white group-hover:translate-x-1 transition-all duration-300">
                     <i class="fas fa-question-circle"></i>
                     <i class="fas fa-random"></i>
                 </div>
             </a>
 
             <!-- Tombol 8 -->
-            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas8-sem1-bab1-pertemuan8" class="card-btn ripple-btn flex items-center w-full bg-[#0c4a6e] rounded-[22px] p-5 md:p-6 shadow-md border-2 border-sky-400/40 hover:border-sky-300 hover:shadow-[0_12px_28px_rgba(56,189,248,0.25)] hover:-translate-y-1.5 hover:scale-[1.01] transition-all duration-300 group animate-fade-up" style="animation-delay: 0.5s;">
-                <div class="flex-shrink-0 text-3xl md:text-4xl text-sky-300 w-14 md:w-20 text-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
+            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas8-sem1-bab1-pertemuan8" class="card-btn flex items-center w-full rounded-[22px] p-5 md:p-6 shadow-md group animate-fade-up" style="animation-delay: 0.5s;">
+                <div class="flex-shrink-0 text-3xl md:text-4xl text-[#88D4AB] w-14 md:w-20 text-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
                     <i class="fas fa-sync drop-shadow"></i>
                 </div>
                 <div class="flex-grow text-justify text-[14px] md:text-[16px] lg:text-[17px] font-semibold text-white leading-relaxed px-2">
                     Pertemuan 8: Penulisan Pseudocode Struktur Perulangan (Looping: FOR/WHILE) dan Studi Kasus Pemecahan Masalah
                 </div>
-                <div class="flex-shrink-0 hidden sm:flex gap-3 text-sky-200/60 text-lg group-hover:text-sky-200 group-hover:translate-x-1 transition-all duration-300">
+                <div class="flex-shrink-0 hidden sm:flex gap-3 text-white/50 text-lg group-hover:text-white group-hover:translate-x-1 transition-all duration-300">
                     <i class="fas fa-redo"></i>
                     <i class="fas fa-laptop-code"></i>
                 </div>
             </a>
 
             <!-- Tombol 9 -->
-            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/?id=kelas8-sem1-bab1-pertemuan9" class="card-btn ripple-btn flex items-center w-full bg-[#1e1b4b] rounded-[22px] p-5 md:p-6 shadow-md border-2 border-indigo-400/40 hover:border-indigo-300 hover:shadow-[0_12px_28px_rgba(129,140,248,0.25)] hover:-translate-y-1.5 hover:scale-[1.01] transition-all duration-300 group animate-fade-up" style="animation-delay: 0.55s;">
-                <div class="flex-shrink-0 text-3xl md:text-4xl text-indigo-300 w-14 md:w-20 text-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
+            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/?id=kelas8-sem1-bab1-pertemuan9" class="card-btn flex items-center w-full rounded-[22px] p-5 md:p-6 shadow-md group animate-fade-up" style="animation-delay: 0.55s;">
+                <div class="flex-shrink-0 text-3xl md:text-4xl text-[#88D4AB] w-14 md:w-20 text-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
                     <i class="fas fa-lightbulb drop-shadow"></i>
                 </div>
                 <div class="flex-grow text-justify text-[14px] md:text-[16px] lg:text-[17px] font-semibold text-white leading-relaxed px-2">
                     Pertemuan 9: Pemecahan Masalah Data Berstruktur dan Penyusunan Pseudocode Lanjutan
                 </div>
-                <div class="flex-shrink-0 hidden sm:flex gap-3 text-indigo-200/60 text-lg group-hover:text-indigo-200 group-hover:translate-x-1 transition-all duration-300">
+                <div class="flex-shrink-0 hidden sm:flex gap-3 text-white/50 text-lg group-hover:text-white group-hover:translate-x-1 transition-all duration-300">
                     <i class="fas fa-check-square"></i>
                     <i class="fas fa-tasks"></i>
                 </div>
             </a>
 
             <!-- Tombol 10: GAMES -->
-            <a href="#" class="card-btn ripple-btn flex items-center w-full bg-[#0f2e2e] rounded-[22px] p-5 md:p-6 shadow-lg border-2 border-emerald-400/60 hover:border-emerald-300 hover:shadow-[0_12px_32px_rgba(52,211,153,0.35)] hover:-translate-y-1.5 hover:scale-[1.015] transition-all duration-300 group animate-fade-up mt-2" style="animation-delay: 0.6s;">
-                <div class="flex-shrink-0 text-3xl md:text-4xl text-emerald-400 w-14 md:w-20 text-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
+            <a href="#" class="card-btn flex items-center w-full rounded-[22px] p-5 md:p-6 shadow-lg group animate-fade-up mt-2" style="animation-delay: 0.6s;">
+                <div class="flex-shrink-0 text-3xl md:text-4xl text-[#88D4AB] w-14 md:w-20 text-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
                     <i class="fas fa-gamepad drop-shadow"></i>
                 </div>
                 <div class="flex-grow text-justify text-[16px] md:text-[18px] lg:text-[20px] font-extrabold text-white leading-relaxed px-2 tracking-wide">
                     GAMES
                 </div>
-                <div class="flex-shrink-0 hidden sm:flex gap-3 text-emerald-300/80 text-xl group-hover:text-emerald-200 group-hover:translate-x-1 transition-all duration-300">
+                <div class="flex-shrink-0 hidden sm:flex gap-3 text-[#A3E4C2]/80 text-xl group-hover:text-white group-hover:translate-x-1 transition-all duration-300">
                     <i class="fas fa-star"></i>
-                    <i class="fas fa-trophy text-yellow-400"></i>
+                    <i class="fas fa-trophy"></i>
                 </div>
             </a>
 
             <!-- Tombol 11: SUMATIF BAB I -->
-            <a href="#" class="card-btn ripple-btn flex items-center w-full bg-[#1e2044] rounded-[22px] p-5 md:p-6 shadow-lg border-2 border-yellow-400/50 hover:border-yellow-300 hover:shadow-[0_12px_32px_rgba(250,204,21,0.35)] hover:-translate-y-1.5 hover:scale-[1.015] transition-all duration-300 group animate-fade-up mt-2" style="animation-delay: 0.65s;">
-                <div class="flex-shrink-0 text-3xl md:text-4xl text-yellow-400 w-14 md:w-20 text-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
+            <a href="#" class="card-btn flex items-center w-full rounded-[22px] p-5 md:p-6 shadow-lg group animate-fade-up mt-2" style="animation-delay: 0.65s;">
+                <div class="flex-shrink-0 text-3xl md:text-4xl text-[#88D4AB] w-14 md:w-20 text-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
                     <i class="fas fa-clipboard-check drop-shadow"></i>
                 </div>
                 <div class="flex-grow text-justify text-[16px] md:text-[18px] lg:text-[20px] font-bold text-white leading-relaxed px-2 tracking-wide">
                     SUMATIF BAB I
                 </div>
-                <div class="flex-shrink-0 hidden sm:flex gap-3 text-yellow-300/80 text-lg group-hover:text-yellow-200 group-hover:translate-x-1 transition-all duration-300">
+                <div class="flex-shrink-0 hidden sm:flex gap-3 text-[#A3E4C2]/80 text-lg group-hover:text-white group-hover:translate-x-1 transition-all duration-300">
                     <i class="fas fa-file-signature"></i>
-                    <i class="fas fa-medal text-yellow-400"></i>
+                    <i class="fas fa-medal"></i>
                 </div>
             </a>
 
         </div>
-    </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="w-full text-center py-6 mt-10">
+        <p class="text-[11px] sm:text-xs font-bold text-gray-300 opacity-80 tracking-wider">
+            INFORMATIKA FUN @ By: Riski Amalia, S.Pd
+        </p>
+    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
